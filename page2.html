@@ -1,0 +1,92 @@
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+	
+	.container {
+		width: 100%;
+		height: 100vh;
+		
+	    background-color: #36096d;
+background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+        
+	
+	.container h1 {
+		color:green;
+		font-weight: 700;
+		font-size: 25px;
+		text-align: center;
+	}
+	
+	.converter-row {
+		display: flex;
+		width: 40%;
+                height: 140px;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #ffffff;
+background-image: linear-gradient(315deg, #A5F2F3 0%,  #2E3192 90%);
+		border-radius: 10px;
+		padding: 50px 20px;
+	}
+	
+	.col {
+		flex-basis: 30.5%;
+		text-align: center;
+	}
+	
+	.col label {
+		font-size: 20px;
+		font-weight: 900;
+		color: black;
+	}
+	
+	.col input {
+		width: 180px;
+		height: 30px;
+		background: white;
+		border-radius: 5px;
+		text-align: center;
+	}
+</style>
+<div class="container">
+	<div class="converter-row">
+		<div class="col">
+			<label>Celsius</label>
+			<input type="number" id="celsius">
+		</div>
+
+		<div class="col">
+			<label>Fahrenheit</label>
+			<input type="number" id="fahrenheit">
+		</div>
+
+		
+
+	</div>
+
+</div>
+ 
+<script>
+	let celsius = document.getElementById('celsius');
+	let fahrenheit = document.getElementById('fahrenheit');
+	celsius.oninput = function () {
+		let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+		fahrenheit.value = parseFloat(f.toFixed(2));
+	
+	}
+	fahrenheit.oninput = function () {
+		let c = ((parseFloat(
+			fahrenheit.value) - 32) * 5) / 9;
+		celsius.value = parseFloat(c.toFixed(2));
+	
+	}
+	
+</script>
